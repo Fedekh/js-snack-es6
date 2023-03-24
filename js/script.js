@@ -10,7 +10,7 @@ console.log("");
 const bike = [
     {
         name: "Pantani",
-        weight: 12
+        weight: 16
     },
     {
         name: "Python",
@@ -18,14 +18,13 @@ const bike = [
     },
     {
         name: "Sandro",
-        weight: 2
+        weight: 23
     },
 ];
 
 
 let min = 100; //una variabile che confrontero mano a mano con gli elementi all interno del foreach
 let win = ""; //sarà il vincitore
-
 
 bike.forEach(({ name, weight }) => {  //in argomento , tramite DESTRUTTURAZIONE, uso gli stessi nomi delle key dell array di partenza
     console.log(name, weight);//ad ogni iterazione ciclo vedro stampato
@@ -40,6 +39,64 @@ bike.forEach(({ name, weight }) => {  //in argomento , tramite DESTRUTTURAZIONE,
 
 console.log(win);
 console.log(min, "kg");
+
+// ? Manipolazione dom
+
+const containerSnack_1 = document.getElementById("container1");
+// Creare la tabella e i suoi elementi correlati
+const table = document.createElement("table");
+const thead = document.createElement("thead");
+const tbody = document.createElement("tbody");
+
+// Aggiungere la riga del titolo nella thead
+const titleRow = document.createElement("tr");
+const titleCell = document.createElement("th");
+
+titleCell.classList.add("red-color")
+titleCell.setAttribute("colspan", "2");
+titleCell.textContent = "Questo è l'array di partenza, a sinistra il nome della bici e a destra il suo peso";
+titleRow.appendChild(titleCell);
+thead.appendChild(titleRow);
+
+// Creare la riga dell'intestazione della tabella
+const headerRow = document.createElement("tr");
+const nameHeader = document.createElement("th");
+nameHeader.textContent = "Nome";
+headerRow.classList.add("bad-color")
+const weightHeader = document.createElement("th");
+weightHeader.textContent = "Peso";
+nameHeader.classList.add("bad-color")
+
+// Aggiungere l'intestazione della tabella
+headerRow.appendChild(nameHeader);
+headerRow.appendChild(weightHeader);
+thead.appendChild(headerRow);
+table.appendChild(thead);
+
+// Creare una riga per ogni oggetto nell'array e popolare le celle con i dati appropriati
+bike.forEach((elem) => {
+  const row = document.createElement("tr");
+  const nameCell = document.createElement("td");
+  nameCell.textContent = elem.name;
+  const weightCell = document.createElement("td");
+  weightCell.textContent = elem.weight;
+  row.appendChild(nameCell);
+  row.appendChild(weightCell);
+  tbody.appendChild(row);
+});
+
+// Aggiungere il corpo della tabella al table e il table al contenitore
+table.appendChild(tbody);
+containerSnack_1.appendChild(table);
+
+// creiamo il messaggio con la bici più leggera
+const message = document.createElement('h3');
+message.innerHTML = win;
+message.classList.add("green-color","my-4");
+
+containerSnack_1.appendChild(message);
+
+
 
 //*###################################################################################################################
 console.log("");
@@ -103,7 +160,92 @@ teams.forEach((team) => {
   console.log("Il nuovo array di oggetti con solo nomi squadre e falli è:", teamsData);
 
 
+ // ? Manipolazione dom
+
+const containerSnack_2 = document.getElementById("container2");
+// Creare la tabella e i suoi elementi correlati
+const tableMid = document.createElement("table");
+const theadMid = document.createElement("thead");
+const tbodyMid = document.createElement("tbody");
+
+// Aggiungere la riga del titolo nella thead
+const titleRowMid = document.createElement("tr");
+const titleCellMid = document.createElement("th");
+
+
+titleCellMid.classList.add("red-color")
+titleCellMid.setAttribute("colspan", "3");
+titleCellMid.textContent = "CLASSIFICA SQUADRE";
+titleRowMid.appendChild(titleCellMid);
+theadMid.appendChild(titleRowMid);
+
+// Creare la riga dell'intestazione della tabella
+const headerRowMid = document.createElement("tr");
+const nameHeaderMid = document.createElement("th");
+nameHeaderMid.textContent = "Squadrea";
+headerRowMid.classList.add("bad-color")
+const pointsHeader = document.createElement("th");
+pointsHeader.textContent = "Punti";
+nameHeaderMid.classList.add("bad-color");
+const failsHeader = document.createElement("th");
+failsHeader.textContent = "Falli subiti";
+failsHeader.classList.add("bad-color");
+
+// Aggiungere l'intestazione della tabella
+headerRowMid.appendChild(nameHeaderMid);
+headerRowMid.appendChild(pointsHeader);
+headerRowMid.appendChild(failsHeader);
+theadMid.appendChild(headerRowMid);
+tableMid.appendChild(theadMid);
+
+
+// Creare una riga per ogni oggetto nell'array e popolare le celle con i dati appropriati
+teams.forEach((team) => {
+    const rowMid = document.createElement("tr");
+    const nameCellMid = document.createElement("td");
+    nameCellMid.textContent = team.name;
+    const pointsCell = document.createElement("td");
+    pointsCell.textContent = team.points;
+    const failsCell = document.createElement("td");
+    failsCell.textContent = team.fails;
+    rowMid.appendChild(nameCellMid);
+    rowMid.appendChild(pointsCell);
+    rowMid.appendChild(failsCell);
+    tbodyMid.appendChild(rowMid);
+  });
+  
+
+// Creare il messaggio con la squadra con più punti e quello con più falli subiti
+let maxPointsTeam = teams[0];
+let maxFailsTeam = teams[0];
+
+teams.forEach((team) => {
+  if (team.points > maxPointsTeam.points) {
+    maxPointsTeam = team;
+  }
+  if (team.fails > maxFailsTeam.fails) {
+    maxFailsTeam = team;
+  }
+});
+
+const messageMid = document.createElement('h3');
+messageMid.innerHTML = `La squadra con più punti è: ${maxPointsTeam.name} (${maxPointsTeam.points} punti).La squadra con più falli subiti è: ${maxFailsTeam.name} (${maxFailsTeam.fails} falli eseguiti) e comunque la JUVE RUBBBA`;
+messageMid.classList.add("green-color","my-4");
+
+// Aggiungere il corpo della tabella al table e il table al contenitore
+tableMid.classList.add("mx-auto");
+tableMid.appendChild(tbodyMid);
+containerSnack_2.appendChild(tableMid);
+
+// Aggiungiamo il messaggio al contenitore
+containerSnack_2.appendChild(messageMid);
+
+  
+
+
 //*###################################################################################################################
+
+
 console.log("");
 console.log("");
 console.log("SNACK BONUS");
@@ -144,3 +286,15 @@ function pippo(array,a,b){
 };
 const newArray = pippo(firstArray,numberA,numberB);
 console.log(`Quindi l'ultimo array avrà un range tra gli indici ${numberA} e ${numberB} dell'array di partenza e sarà formato da: `, newArray);
+
+// creazione dell'elemento ul
+const ul2 = document.createElement("ul");
+
+// ciclo forEach per creare gli elementi li
+newArray.forEach((element) => {
+  const li = document.createElement("li");
+  li.innerText = element;
+  ul.appendChild(li);
+});
+
+// aggiunta dell'elemento ul al body del documento

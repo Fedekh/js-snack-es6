@@ -1,3 +1,37 @@
 body{
-    background-color: rgb(21, 21, 20);
+    background-color: rgb(32, 30, 31);
+    color: white;
+}
+
+.wrapper {
+    border: 1px solid green;
+    width: 100%;
+    height: 80vh;
+
+}
+
+.wrapper > * {
+    /* border: 1px solid violet; */
+    width: calc(100% / 3 - 40px);
+}
+
+.container {
+    /* border: 1px solid blue; */
+
+}
+
+h2{
+    color: rgb(176, 130, 69);
+}
+
+.red-color{
+    color: rgb(128, 0, 0);
+    margin-bottom: 40px;
+}
+.green-color {
+    color: green;
+}
+
+.bad-color {
+    color: rgb(65, 43, 233);
 }
