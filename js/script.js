@@ -107,6 +107,7 @@ console.log("");
 console.log("");
 console.log("SNACK BONUS");
 // !SNACK BONUS
+
 // Scrivere una funzione che accetti tre argomenti, un array e due numeri (a più piccolo di b).
 // La funzione ritornerà un nuovo array con i valori che hanno la posizione compresa tra i due numeri.
 // Usiamo i nuovi metodi degli array foreach o filter.
@@ -132,7 +133,12 @@ do {
 console.log(`Il primo numero che sarà argomento della funzione è ${numberA} e il secondo è ${numberB}`);
 
 
-
 function pippo(array,a,b){
-
+    const lastArray = array.filter((elemento, indice) => {
+        lastArray.length = b-a;
+        return indice <= b && indice >=a; 
+        
+    })
+    return lastArray;
 };
+const newArray = pippo(firstArray,numberA,numberB);
