@@ -103,7 +103,9 @@ teams.forEach((team) => {
 
 
 //*###################################################################################################################
-
+console.log("");
+console.log("");
+console.log("SNACK BONUS");
 // !SNACK BONUS
 // Scrivere una funzione che accetti tre argomenti, un array e due numeri (a più piccolo di b).
 // La funzione ritornerà un nuovo array con i valori che hanno la posizione compresa tra i due numeri.
@@ -111,3 +113,26 @@ teams.forEach((team) => {
 //es: 
 //const numbersArray = [23, 14, 6, 8, 10];
 //const newArray = getSubArray(numbersArray, 1, 3) ---> [14, 6, 8]
+
+
+const firstArray = [44,67,3,78,98,45,67,88];
+let numberA;
+let numberB;
+
+// Inserisco qualche controllo sull input
+
+do {
+  numberA = parseInt(prompt("Inserisci un numero (deve essere un numero positivo e minore della lunghezza dell'array)"));
+} while (isNaN(numberA) || numberA < 0 || numberA >= firstArray.length);
+
+do {
+  numberB = parseInt(prompt("Inserisci un numero maggiore del primo (deve essere un numero positivo, minore della lunghezza dell'array e maggiore del primo indice)"));
+} while (isNaN(numberB) || numberB < 0 || numberB >= firstArray.length || numberB <= numberA);
+
+console.log(`Il primo numero che sarà argomento della funzione è ${numberA} e il secondo è ${numberB}`);
+
+
+
+function pippo(array,a,b){
+
+};
