@@ -65,28 +65,29 @@ console.log("");
 
 const teams = [
     {
-        name: "Team 1",
+        name: "Milan",
         points: 0,
         fails: 0
     },
     {
-        name: "Team 2",
+        name: "juve",
         points: 0,
         fails: 0
     },
     {
-        name: "Team 3",
+        name: "Napoli",
         points: 0,
         fails: 0
     },
     {
-        name: "Team 4",
+        name: "Roma",
         points: 0,
         fails: 0
     },
 ]
 
-console.log(teams); //fa sempre comodo vedere l'array di oggetti
+//console.log(teams); //fa sempre comodo vedere l'array di oggetti
+
 
 // Generare numeri random al posto degli 0 in Punti fatti e falli subiti, team in argomento è un uggetto di teams
 teams.forEach((team) => {
@@ -98,8 +99,8 @@ teams.forEach((team) => {
   const teamsData = teams.map(({ name, fails }) => ({ name, fails }));
   
   // Stampiamo tutto in console
-  console.log(teams, teamsData);
-
+  console.log(teams);
+  console.log("Il nuovo array di oggetti con solo nomi squadre e falli è:", teamsData);
 
 
 //*###################################################################################################################
@@ -120,7 +121,7 @@ const firstArray = [44,67,3,78,98,45,67,88];
 let numberA;
 let numberB;
 
-// Inserisco qualche controllo sull input
+// Inserisco qualche controllo sull input affinche numberA < numberB ed entrambi inferiori alla lunghezza dell array di partenza, ma sopratutto !isNAN
 
 do {
   numberA = parseInt(prompt("Inserisci un numero (deve essere un numero positivo e minore della lunghezza dell'array)"));
