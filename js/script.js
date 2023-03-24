@@ -130,15 +130,16 @@ do {
   numberB = parseInt(prompt("Inserisci un numero maggiore del primo (deve essere un numero positivo, minore della lunghezza dell'array e maggiore del primo indice)"));
 } while (isNaN(numberB) || numberB < 0 || numberB >= firstArray.length || numberB <= numberA);
 
-console.log(`Il primo numero che sarà argomento della funzione è ${numberA} e il secondo è ${numberB}`);
+console.log(`Il primo numero che sarà argomento della funzione, e anche indice minimo dell ultimo array, è ${numberA} mentre il secondo è ${numberB}`);
 
 
 function pippo(array,a,b){
     const lastArray = array.filter((elemento, indice) => {
-        lastArray.length = b-a;
+        // lastArray.length = b-a;
         return indice <= b && indice >=a; 
         
     })
-    return lastArray;
+    return lastArray; 
 };
 const newArray = pippo(firstArray,numberA,numberB);
+console.log(`Quindi l'ultimo array avrà un range tra gli indici ${numberA} e ${numberB} dell'array di partenza e sarà formato da: `, newArray);
