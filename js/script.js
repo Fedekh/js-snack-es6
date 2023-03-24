@@ -51,10 +51,19 @@ console.log("");
 // !SNACK 2
 // Creare un array di oggetti di squadre di calcio. Ogni squadra avrà diverse proprietà: nome, punti fatti, falli subiti.
 // Nome sarà l’unica proprietà da compilare, le altre saranno tutte settate a 0.
-// Generare numeri random al posto degli 0 in Punti fatti e falli subiti.
+// Generare numeri random al posto degli 0 in Punti fatti e in falli subiti.
 // Infine usando la destrutturazione creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console.
 
-const team = [
+/** 
+ *? Me lo metto qui che non me lo ricordo mai: FOREACH SINTASSI
+ *?  array.forEach((elemento, indice, array) => {
+* ?  });
+
+* ?  array è l'array su cui si vuole iterare, elemento è l'elemento corrente dell'iterazione,
+* ? indice è l'indice dell'elemento corrente e array è l'array stesso.
+ */
+
+const teams = [
     {
         name: "Team 1",
         points: 0,
@@ -77,6 +86,19 @@ const team = [
     },
 ]
 
+console.log(teams); //fa sempre comodo vedere l'array di oggetti
+
+// Generare numeri random al posto degli 0 in Punti fatti e falli subiti, team in argomento è un uggetto di teams
+teams.forEach((team) => {
+    team.points = Math.floor(Math.random() * 100); //non seguendo il calcio non so quanti punti ci sono di norma a fine campionato
+    team.fails = Math.floor(Math.random() * 30);  // gia 30 mi sembra gigante come numero di falli annuali
+  });
+  
+  // Usando la destrutturazione creiamo un nuovo array, con MAP, i cui elementi contengono solo nomi e falli subiti
+  const teamsData = teams.map(({ name, fails }) => ({ name, fails }));
+  
+  // Stampiamo tutto in console
+  console.log(teams, teamsData);
 
 
 
@@ -86,3 +108,6 @@ const team = [
 // Scrivere una funzione che accetti tre argomenti, un array e due numeri (a più piccolo di b).
 // La funzione ritornerà un nuovo array con i valori che hanno la posizione compresa tra i due numeri.
 // Usiamo i nuovi metodi degli array foreach o filter.
+//es: 
+//const numbersArray = [23, 14, 6, 8, 10];
+//const newArray = getSubArray(numbersArray, 1, 3) ---> [14, 6, 8]
