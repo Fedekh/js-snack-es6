@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <!-- BOOTSTRAP -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <div class="wrapper d-flex justify-content-between text-center mt-4">
         <div class="container-left">
-             <h2 class="my-4">E' tempo di snack (1)</h2> 
-             <div id="container1" class="container mt-4 py-4">
-             </div>
+            <h2 class="my-4">E' tempo di snack (1)</h2>
+            <div id="container1" class="container mt-4 py-4">
+            </div>
 
         </div>
         <div class="container-mid text-center">
@@ -25,13 +28,35 @@
 
         </div>
         <div class="container-right">
-            <h2 class="my-4">E' tempo di snack (bonus)</h2>
-            <div id="container3" class="container mt-4 py-4">
-                
+            <h2 class="my-2">E' tempo di snack (bonus)</h2>
+            <div id="container3" class="container mt-2">
+                <form>
+                    <div class="form-group my-4 py-1">
+                        <label class="red-color mb-4" for="numberA">Inserisci un numero (deve essere un numero positivo e minore della
+                            lunghezza dell'array):</label>
+                        <input type="number" style="width: 50%;" id="numberA" name="numberA" min="0" max="7" required>
+                    </div>
+                    <div class="form-group my-4 py-1">
+                        <label class="red-color mb-4" for="numberB">Inserisci un numero maggiore del primo (deve essere un numero positivo,
+                            minore della lunghezza dell'array e maggiore del primo indice):</label>
+                        <input type="number" style="width: 50%;" id="numberB" name="numberB" min="1" max="8" required>
+                    </div>
+                    <div class="form-group my-4 py-1">
+                        <label class="red-color mb-4" for="arrayElements">Elementi dell'array:</label>
+                        <input type="text" style="width: 80%;" class="text-center " id="arrayElements" name="arrayElements"
+                            value="44,67,3,78,98,45,67,88" readonly>
+                    </div>
+                    <button type="button" id="btn" class="btn btn-primary">VAI GENERA NUOVO ARRAY</button>
+                </form>
+                <h4 class="my-4 green-color">L'array filtrato è :</h4>
+                <ul class="list-inline d-flex justify-content-center text-center"  id="newArray">
+
+                </ul>
             </div>
 
         </div>
     </div>
     <script src="js/script.js"></script>
 </body>
+
 </html>

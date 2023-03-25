@@ -15,18 +15,14 @@ body{
     width: calc(100% / 3 - 40px);
 }
 
-.container {
-    /* border: 1px solid blue; */
-
-}
 
 h2{
     color: rgb(176, 130, 69);
 }
 
 .red-color{
-    color: rgb(128, 0, 0);
-    margin-bottom: 40px;
+    color: rgb(200, 42, 42);
+    /* margin-bottom: 40px; */
 }
 .green-color {
     color: green;
@@ -35,3 +31,12 @@ h2{
 .bad-color {
     color: rgb(65, 43, 233);
 }
+
+input {
+    width: 20px
+}
+
+#newArray li:not(:last-child)::after {
+    content: ",";
+    margin-right: 10px;
+  }

@@ -75,14 +75,14 @@ table.appendChild(thead);
 
 // Creare una riga per ogni oggetto nell'array e popolare le celle con i dati appropriati
 bike.forEach((elem) => {
-  const row = document.createElement("tr");
-  const nameCell = document.createElement("td");
-  nameCell.textContent = elem.name;
-  const weightCell = document.createElement("td");
-  weightCell.textContent = elem.weight;
-  row.appendChild(nameCell);
-  row.appendChild(weightCell);
-  tbody.appendChild(row);
+    const row = document.createElement("tr");
+    const nameCell = document.createElement("td");
+    nameCell.textContent = elem.name;
+    const weightCell = document.createElement("td");
+    weightCell.textContent = elem.weight;
+    row.appendChild(nameCell);
+    row.appendChild(weightCell);
+    tbody.appendChild(row);
 });
 
 // Aggiungere il corpo della tabella al table e il table al contenitore
@@ -92,7 +92,7 @@ containerSnack_1.appendChild(table);
 // creiamo il messaggio con la bici più leggera
 const message = document.createElement('h3');
 message.innerHTML = win;
-message.classList.add("green-color","my-4");
+message.classList.add("green-color", "my-4");
 
 containerSnack_1.appendChild(message);
 
@@ -150,17 +150,17 @@ const teams = [
 teams.forEach((team) => {
     team.points = Math.floor(Math.random() * 100); //non seguendo il calcio non so quanti punti ci sono di norma a fine campionato
     team.fails = Math.floor(Math.random() * 30);  // gia 30 mi sembra gigante come numero di falli annuali
-  });
-  
-  // Usando la destrutturazione creiamo un nuovo array, con MAP, i cui elementi contengono solo nomi e falli subiti
-  const teamsData = teams.map(({ name, fails }) => ({ name, fails }));
-  
-  // Stampiamo tutto in console
-  console.log(teams);
-  console.log("Il nuovo array di oggetti con solo nomi squadre e falli è:", teamsData);
+});
+
+// Usando la destrutturazione creiamo un nuovo array, con MAP, i cui elementi contengono solo nomi e falli subiti
+const teamsData = teams.map(({ name, fails }) => ({ name, fails }));
+
+// Stampiamo tutto in console
+console.log(teams);
+console.log("Il nuovo array di oggetti con solo nomi squadre e falli è:", teamsData);
 
 
- // ? Manipolazione dom
+// ? Manipolazione dom
 
 const containerSnack_2 = document.getElementById("container2");
 // Creare la tabella e i suoi elementi correlati
@@ -212,25 +212,25 @@ teams.forEach((team) => {
     rowMid.appendChild(pointsCell);
     rowMid.appendChild(failsCell);
     tbodyMid.appendChild(rowMid);
-  });
-  
+});
+
 
 // Creare il messaggio con la squadra con più punti e quello con più falli subiti
 let maxPointsTeam = teams[0];
 let maxFailsTeam = teams[0];
 
 teams.forEach((team) => {
-  if (team.points > maxPointsTeam.points) {
-    maxPointsTeam = team;
-  }
-  if (team.fails > maxFailsTeam.fails) {
-    maxFailsTeam = team;
-  }
+    if (team.points > maxPointsTeam.points) {
+        maxPointsTeam = team;
+    }
+    if (team.fails > maxFailsTeam.fails) {
+        maxFailsTeam = team;
+    }
 });
 
 const messageMid = document.createElement('h3');
 messageMid.innerHTML = `La squadra con più punti è: ${maxPointsTeam.name} (${maxPointsTeam.points} punti).La squadra con più falli subiti è: ${maxFailsTeam.name} (${maxFailsTeam.fails} falli eseguiti) e comunque la JUVE RUBBBA`;
-messageMid.classList.add("green-color","my-4");
+messageMid.classList.add("green-color", "my-4");
 
 // Aggiungere il corpo della tabella al table e il table al contenitore
 tableMid.classList.add("mx-auto");
@@ -240,7 +240,7 @@ containerSnack_2.appendChild(tableMid);
 // Aggiungiamo il messaggio al contenitore
 containerSnack_2.appendChild(messageMid);
 
-  
+
 
 
 //*###################################################################################################################
@@ -259,42 +259,44 @@ console.log("SNACK BONUS");
 //const newArray = getSubArray(numbersArray, 1, 3) ---> [14, 6, 8]
 
 
-const firstArray = [44,67,3,78,98,45,67,88];
-let numberA;
-let numberB;
 
 // Inserisco qualche controllo sull input affinche numberA < numberB ed entrambi inferiori alla lunghezza dell array di partenza, ma sopratutto !isNAN
 
-do {
-  numberA = parseInt(prompt("Inserisci un numero (deve essere un numero positivo e minore della lunghezza dell'array)"));
-} while (isNaN(numberA) || numberA < 0 || numberA >= firstArray.length);
+// do {
+//     numberA = parseInt(prompt("Inserisci un numero (deve essere un numero positivo e minore della lunghezza dell'array)"));
+// } while (isNaN(numberA) || numberA < 0 || numberA >= firstArray.length);
 
-do {
-  numberB = parseInt(prompt("Inserisci un numero maggiore del primo (deve essere un numero positivo, minore della lunghezza dell'array e maggiore del primo indice)"));
-} while (isNaN(numberB) || numberB < 0 || numberB >= firstArray.length || numberB <= numberA);
+// do {
+//     numberB = parseInt(prompt("Inserisci un numero maggiore del primo (deve essere un numero positivo, minore della lunghezza dell'array e maggiore del primo indice)"));
+// } while (isNaN(numberB) || numberB < 0 || numberB >= firstArray.length || numberB <= numberA);
 
-console.log(`Il primo numero che sarà argomento della funzione, e anche indice minimo dell ultimo array, è ${numberA} mentre il secondo è ${numberB}`);
+// console.log(`Il primo numero che sarà argomento della funzione, e anche indice minimo dell ultimo array, è ${numberA} mentre il secondo è ${numberB}`);
 
+const firstArray = [44, 67, 3, 78, 98, 45, 67, 88];
 
-function pippo(array,a,b){
-    const lastArray = array.filter((elemento, indice) => {
-        // lastArray.length = b-a;
-        return indice <= b && indice >=a; 
-        
-    })
-    return lastArray; 
-};
-const newArray = pippo(firstArray,numberA,numberB);
-console.log(`Quindi l'ultimo array avrà un range tra gli indici ${numberA} e ${numberB} dell'array di partenza e sarà formato da: `, newArray);
+function pippo(array, a, b) {
+    return array.filter((elemento, indice) => {
+        return indice <= b && indice >= a;
+    });
+}
 
-// creazione dell'elemento ul
-const ul2 = document.createElement("ul");
+const form = document.querySelector('form');
+const ul = document.getElementById('newArray');
+const btn = document.getElementById('btn');
 
-// ciclo forEach per creare gli elementi li
-newArray.forEach((element) => {
-  const li = document.createElement("li");
-  li.innerText = element;
-  ul.appendChild(li);
+btn.addEventListener("click", function () {
+    const numberA = parseInt(document.getElementById('numberA').value);
+    const numberB = parseInt(document.getElementById('numberB').value);
+
+    if (isNaN(numberA) || isNaN(numberB) || numberA < 0 || numberA >= firstArray.length || numberB < 0 || numberB >= firstArray.length || numberB <= numberA) {
+        alert('Inserisci due numeri validi!');
+    } else {
+        const newArray = pippo(firstArray, numberA, numberB);
+        ul.innerHTML = '';
+        newArray.forEach((element) => {
+            const li = document.createElement('li');
+            li.innerText = element;
+            ul.appendChild(li);
+        });
+    }
 });
-
-// aggiunta dell'elemento ul al body del documento
